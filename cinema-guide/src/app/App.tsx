@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "../header/header";
-import { GenresPage } from "../../pages/genresPage/genresPage";
-import { HomePage } from "../../pages/homePage/homePage";
 import { APP_ROUTES } from "./routes/config";
-import { Footer } from "../footer/footer";
+import { Footer } from "../components/footer/footer";
+import { GenresPage } from "../pages/genresPage/genresPage";
+import { HomePage } from "../pages/homePage/homePage";
+import { Header } from "../components/header/header";
 
 function App() {
   return (

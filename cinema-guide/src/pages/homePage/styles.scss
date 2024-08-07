@@ -1,0 +1,7 @@
+@import "../../app/common/styles/var.scss";
+
+.wallpaper {
+  &__title {
+    @include h1;
+  }
+}

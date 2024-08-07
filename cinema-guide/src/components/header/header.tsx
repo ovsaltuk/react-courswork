@@ -1,15 +1,19 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
-import { APP_ROUTES } from "../app/routes/config";
+import { APP_ROUTES } from "../../app/routes/config";
+import { INavigationItem, Navigation } from "../navigation/navigation";
+import { Logo } from "../logo/logo";
+import "./styles.scss";
+
+const NavListItems: INavigationItem[] = [
+  { label: "Главная", path: APP_ROUTES.root },
+  { label: "Жанры", path: APP_ROUTES.genres }
+];
 
 export const Header: FC = () => {
   return (
     <header className="header">
-      <div>logo</div>
-      <div>
-        <Link to={APP_ROUTES.root}>Главная</Link>
-        <Link to={APP_ROUTES.genres}>Жанры</Link>
-      </div>
+      <Logo />
+      <Navigation list={NavListItems}/>
       <div>Search</div>
       <div>login</div>
     </header>
