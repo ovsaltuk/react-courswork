@@ -3,9 +3,10 @@ import axios from "axios";
 import { HOST } from "../../app/api/movieApi";
 import { IMovie } from "../../app/models/IMovie";
 import "./styles.scss";
+import { RandomMovie } from "../../components/randomMovie/randomMovie";
 
 export const HomePage: FC = () => {
-  const [movie, setMovie] = useState<IMovie>();
+  const [movie, setMovie] = useState<IMovie>({} as IMovie);
   const [topTen, setTopTen] = useState<IMovie[]>();
   useEffect(() => {
     axios.get(`${HOST}/movie/random`).then((res) => setMovie(res.data));
@@ -13,9 +14,7 @@ export const HomePage: FC = () => {
   }, []);
   return (
     <div className="home">
-      <div className="wallpaper">
-        <h1 className="wallpaper__title">{movie?.title}</h1>
-      </div>
+      <RandomMovie movie={movie}/>
       <h2>Топ 10 фильмов</h2>
       <ul className="top-ten">
         {topTen?.map((movie) => (

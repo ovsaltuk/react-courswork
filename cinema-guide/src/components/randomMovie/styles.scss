@@ -1,0 +1,13 @@
+.random-movie {
+  position: relative;
+  height: 680px;
+  background-size: 60%;
+  background-position: right top;
+  background-repeat: no-repeat;
+
+  &__info {
+    position: absolute;
+    left: 80px;
+    bottom: 122px;
+  }
+}
