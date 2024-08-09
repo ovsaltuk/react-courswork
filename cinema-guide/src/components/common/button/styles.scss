@@ -4,6 +4,10 @@
   padding: 16px 48px 16px 48px;
   border-radius: 28px;
   white-space: nowrap;
+  transition: background-color .2s ease-in-out;
+  cursor: pointer;
+  
+
   &.default-style {
     color: $text-default-color;
     background-color: $btn-default-color;
@@ -11,9 +15,16 @@
   &.primary-style {
     color: $text-primary-color;
     background-color: $btn-primary-color;
+    &:hover {
+      background-color: $background-hovered;
+    }
   }
   &.secondary-style {
     color: $text-secondary-color;
     background-color: $btn-secondary-color;
+  }
+
+  &:hover {
+    background-color: $background-hovered;
   }
 }

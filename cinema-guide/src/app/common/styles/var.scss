@@ -2,6 +2,10 @@ $btn-primary-color: #393B3C;
 $btn-secondary-color: #747474;
 $btn-default-color: #FFFFFF;
 
+$background-active: #6A5DC2;
+$background-disabled: #D6D2F1;
+$background-hovered: #8577E1;
+
 $menu-active-color: #DC5DFC;
 
 $text-primary-color: #FFFFFF;
@@ -12,6 +16,12 @@ $shadow-color: rgba(255, 255, 255, 0.33);
 
 $background-primary-color: rgba(10, 11, 11, 1);
 $background-secondary-color: rgba(57, 59, 60, 1);
+
+$rating-top: #A59400;
+$rating-good: #308E21;
+$rating-common: #777777;
+$rating-bad: #C82020;
+
 
 @mixin h1 {
   font-size: 48px;
