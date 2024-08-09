@@ -14,15 +14,19 @@ export const HomePage: FC = () => {
   }, []);
   return (
     <div className="home">
-      <RandomMovie movie={movie}/>
-      <h2>Топ 10 фильмов</h2>
-      <ul className="top-ten">
-        {topTen?.map((movie) => (
-          <div>
-            <img src={movie.posterUrl} alt={movie.title} />
-          </div>
-        ))}
-      </ul>
+      <RandomMovie movie={movie} />
+      <section className="top-ten">
+        <div className="container">
+          <h2 className="top-ten__title">Топ 10 фильмов</h2>
+          <ul className="top-ten">
+            {topTen?.map((movie) => (
+              <div>
+                <img src={movie.posterUrl} alt={movie.title} />
+              </div>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 };

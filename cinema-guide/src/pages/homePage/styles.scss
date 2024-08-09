@@ -1,2 +1,7 @@
-@import "../../app/common/styles/var.scss";
+@import "@/app/common/styles/var.scss";
 
+.top-ten {
+  &__title {
+    @include h2;
+  }
+}

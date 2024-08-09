@@ -19,7 +19,7 @@ export interface IMovie {
   awardsSummary: string;
   runtime: 1;
   trailerUrl: string;
-  relaseYear: number;
+  releaseYear: number;
   countriesOfOrigin: string[];
   originalTitle: string;
   searchL: string;

@@ -1,0 +1,19 @@
+@import "@/app/common/styles/var.scss";
+
+.btn {
+  padding: 16px 48px 16px 48px;
+  border-radius: 28px;
+  white-space: nowrap;
+  &.default-style {
+    color: $text-default-color;
+    background-color: $btn-default-color;
+  }
+  &.primary-style {
+    color: $text-primary-color;
+    background-color: $btn-primary-color;
+  }
+  &.secondary-style {
+    color: $text-secondary-color;
+    background-color: $btn-secondary-color;
+  }
+}
