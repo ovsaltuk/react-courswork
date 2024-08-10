@@ -22,6 +22,8 @@ $rating-good: #308E21;
 $rating-common: #777777;
 $rating-bad: #C82020;
 
+$transition: .2s ease-in-out;
+
 
 @mixin h1 {
   font-size: 48px;

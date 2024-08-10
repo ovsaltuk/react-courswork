@@ -1,12 +1,17 @@
 @import "@/app/common/styles/var.scss";
 
 .btn {
-  padding: 16px 48px 16px 48px;
   border-radius: 28px;
   white-space: nowrap;
-  transition: background-color .2s ease-in-out;
+  font-weight: 700;
+  transition: background-color $transition;
   cursor: pointer;
-  
+
+  &.l-size {
+    padding: 16px 48px 16px 48px;
+    font-size: 18px;
+    line-height: 24px;
+  }
 
   &.default-style {
     color: $text-default-color;
