@@ -10,26 +10,26 @@ interface IBannerProps {
   movie: IMovie;
 }
 
-export const RandomMovie: FC<IBannerProps> = ({ movie }) => {
+export const Banner: FC<IBannerProps> = ({ movie }) => {
   return (
     <div
-      className="random-movie"
+      className="banner-movie"
       style={{ backgroundImage: `url(${movie?.backdropUrl})` }}
     >
-      <div className="random-movie__info">
-        <div className="random-movie__top-panel">
+      <div className="banner-movie__info">
+        <div className="banner-movie__top-panel">
           <Rating rating={movie?.tmdbRating} size={ESize.large} />
           <span>{movie?.releaseYear}</span>
           <span>{movie.genres && movie.genres.join(" ")}</span>
           <span>{formatDuration(movie?.runtime)}</span>
         </div>
-        <h1 className="random-movie__title">{movie?.title}</h1>
-        <p className="random-movie__plot">{movie?.plot}</p>
-        <div className="random-movie__btn-container">
+        <h1 className="banner-movie__title">{movie?.title}</h1>
+        <p className="banner-movie__plot">{movie?.plot}</p>
+        <div className="banner-movie__btn-container">
           <Button onClick={() => {}} text="Трейлер" type={EButtonType.Primary}/>
           <Button onClick={() => {}} text="О Фильме" type={EButtonType.Primary}/>
-          <Button onClick={() => {}} text="Лайк" type={EButtonType.Primary}/>
-          <Button onClick={() => {}} text="Замена" type={EButtonType.Primary}/>
+          <Button onClick={() => {}} icon="mdi:heart-outline" type={EButtonType.Primary}/>
+          <Button onClick={() => {}} icon="pepicons-pop:arrows-spin" type={EButtonType.Primary}/>
         </div>
       </div>
     </div>

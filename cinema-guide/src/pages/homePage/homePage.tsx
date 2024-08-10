@@ -3,7 +3,7 @@ import axios from "axios";
 import { HOST } from "../../app/api/movieApi";
 import { IMovie } from "../../app/models/IMovie";
 import "./styles.scss";
-import { RandomMovie } from "../../components/randomMovie/randomMovie";
+import { Banner } from "../../components/banner/banner";
 
 export const HomePage: FC = () => {
   const [movie, setMovie] = useState<IMovie>({} as IMovie);
@@ -14,7 +14,7 @@ export const HomePage: FC = () => {
   }, []);
   return (
     <div className="home">
-      <RandomMovie movie={movie} />
+      <Banner movie={movie} />
       <section className="top-ten">
         <div className="container">
           <h2 className="top-ten__title">Топ 10 фильмов</h2>
