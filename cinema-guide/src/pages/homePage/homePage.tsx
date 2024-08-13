@@ -4,6 +4,7 @@ import { HOST } from "../../app/api/movieApi";
 import { IMovie } from "../../app/models/IMovie";
 import "./styles.scss";
 import { Banner } from "../../components/banner/banner";
+import { MovieCardsList } from "../../components/cardList/cardList";
 
 export const HomePage: FC = () => {
   const [movie, setMovie] = useState<IMovie>({} as IMovie);
@@ -18,13 +19,7 @@ export const HomePage: FC = () => {
       <section className="top-ten">
         <div className="container">
           <h2 className="top-ten__title">Топ 10 фильмов</h2>
-          <ul className="top-ten">
-            {topTen?.map((movie) => (
-              <div>
-                <img src={movie.posterUrl} alt={movie.title} />
-              </div>
-            ))}
-          </ul>
+          {topTen && <MovieCardsList movieList={topTen} />}
         </div>
       </section>
     </div>

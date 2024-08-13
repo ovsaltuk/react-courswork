@@ -1,0 +1,8 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 64px;
+  justify-content: space-between;
+  max-width: 100%;
+}

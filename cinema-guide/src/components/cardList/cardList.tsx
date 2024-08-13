@@ -1,0 +1,15 @@
+import { FC } from "react"
+import { IMovie } from "../../app/models/IMovie"
+import "./styles.scss"
+import { MovieCard } from "./movieCard/movieCard"
+import { link } from "fs"
+
+interface IMovieCardsListProps {
+  movieList: IMovie[]
+}
+
+export const MovieCardsList: FC<IMovieCardsListProps> = ({movieList}) => {
+  return (<ul className="card-list">
+    {movieList.map((movie) => <li key={movie.id} className="card-list__card"><MovieCard movie={movie} /></li>)}
+  </ul>)
+}

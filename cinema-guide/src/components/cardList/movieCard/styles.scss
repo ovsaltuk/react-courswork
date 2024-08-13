@@ -1,0 +1,14 @@
+@import "@/app/common/styles/var.scss";
+
+.movie-card {
+  width: 224px;
+  height: 336px;
+  border: 1px solid $white-25;
+  border-radius: 25px;
+
+  &>img {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
