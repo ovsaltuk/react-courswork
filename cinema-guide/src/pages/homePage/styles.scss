@@ -2,6 +2,8 @@
 
 .top-ten {
   &__title {
+    margin-bottom: 64px;
     @include h2;
+
   }
 }

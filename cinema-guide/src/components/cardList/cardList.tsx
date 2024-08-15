@@ -1,15 +1,21 @@
-import { FC } from "react"
-import { IMovie } from "../../app/models/IMovie"
-import "./styles.scss"
-import { MovieCard } from "./movieCard/movieCard"
-import { link } from "fs"
+import { FC } from "react";
+import { IMovie } from "../../app/models/IMovie";
+import "./styles.scss";
+import { MovieCard } from "./movieCard/movieCard";
+import { link } from "fs";
 
 interface IMovieCardsListProps {
-  movieList: IMovie[]
+  movieList: IMovie[];
 }
 
-export const MovieCardsList: FC<IMovieCardsListProps> = ({movieList}) => {
-  return (<ul className="card-list">
-    {movieList.map((movie) => <li key={movie.id} className="card-list__card"><MovieCard movie={movie} /></li>)}
-  </ul>)
-}
+export const MovieCardsList: FC<IMovieCardsListProps> = ({ movieList }) => {
+  return (
+    <ul className="card-list">
+      {movieList.map((movie, index) => (
+        <li key={movie.id} className="card-list__card">
+          <MovieCard movie={movie} position={index + 1} />
+        </li>
+      ))}
+    </ul>
+  );
+};
