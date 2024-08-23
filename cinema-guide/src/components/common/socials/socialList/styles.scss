@@ -1,0 +1,18 @@
+@import "@/app/common/styles/var.scss";
+
+.social-list {
+    display: flex;
+    gap: 24px;
+
+    &__item {
+        width: 36px;
+        height: 36px;
+        border: 1px solid $text-primary-color;
+        border-radius: 8px;
+        &:hover {
+            color: $background-hovered;
+            border-color: inherit;
+            transition: $transition;
+        }
+    }
+}
