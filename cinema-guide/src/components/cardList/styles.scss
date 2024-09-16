@@ -1,7 +1,11 @@
 .card-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 40px;
-  row-gap: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
   max-width: 100%;
+
+  &__card {
+    width: 224px;
+  }
 }

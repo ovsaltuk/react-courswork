@@ -2,7 +2,6 @@ import { FC } from "react";
 import { IMovie } from "../../app/models/IMovie";
 import "./styles.scss";
 import { MovieCard } from "./movieCard/movieCard";
-import { link } from "fs";
 
 interface IMovieCardsListProps {
   movieList: IMovie[];

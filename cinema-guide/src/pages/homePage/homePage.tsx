@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import axios from "axios";
 import { HOST } from "../../app/api/movieApi";
 import { IMovie } from "../../app/models/IMovie";
 import "./styles.scss";
 import { Banner } from "../../components/banner/banner";
 import { MovieCardsList } from "../../components/cardList/cardList";
+import axios from "axios";
 
 export const HomePage: FC = () => {
   const [movie, setMovie] = useState<IMovie>({} as IMovie);
