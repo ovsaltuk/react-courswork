@@ -1,4 +1,16 @@
+@import "@/app/common/styles/var.scss";
+
 .nav {
   display: flex;
   gap: 40px;
+
+  &__item a {
+    padding-bottom: 8px;
+    color: $text-primary-color;
+    @include body24reg;
+    border-bottom: 1.5px solid transparent;
+    &.active {
+      border-color: $menu-active-color;
+    }
+  }
 }
