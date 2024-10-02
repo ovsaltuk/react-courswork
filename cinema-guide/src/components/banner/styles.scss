@@ -3,15 +3,17 @@
 .banner-movie {
   position: relative;
   height: 680px;
-  background-size: auto 100%;
-  background-position: right top;
-  background-repeat: no-repeat;
+  // background-size: 60% 100%;
+  // background-position: right center;
+  // background-repeat: no-repeat;
 
   &__info {
     position: absolute;
+    z-index: 2;
     left: 80px;
-    bottom: 122px;
-    width: 600px;
+    top: 200px;
+    max-width: 60%;
+    
   }
 
   &__top-panel {
@@ -19,7 +21,7 @@
     align-items: center;
     gap: 16px;
     margin-bottom: 20px;
-    &>span {
+    & > span {
       @include body18reg;
       color: $text-secondary-color;
     }
@@ -39,4 +41,13 @@
     display: flex;
     gap: 16px;
   }
+}
+
+.banner-movie__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  background-size: cover;
 }

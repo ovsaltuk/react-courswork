@@ -12,10 +12,7 @@ interface IBannerProps {
 
 export const Banner: FC<IBannerProps> = ({ movie }) => {
   return (
-    <div
-      className="banner-movie"
-      style={{ backgroundImage: `url(${movie?.backdropUrl})` }}
-    >
+    <div className="banner-movie">
       <div className="banner-movie__info">
         <div className="banner-movie__top-panel">
           <Rating rating={movie?.tmdbRating} size={ESize.large} />
@@ -26,12 +23,32 @@ export const Banner: FC<IBannerProps> = ({ movie }) => {
         <h1 className="banner-movie__title">{movie?.title}</h1>
         <p className="banner-movie__plot">{movie?.plot}</p>
         <div className="banner-movie__btn-container">
-          <Button onClick={() => {}} text="Трейлер" type={EButtonType.Primary}/>
-          <Button onClick={() => {}} text="О Фильме" type={EButtonType.Primary}/>
-          <Button onClick={() => {}} icon="mdi:heart-outline" type={EButtonType.Primary}/>
-          <Button onClick={() => {}} icon="pepicons-pop:arrows-spin" type={EButtonType.Primary}/>
+          <Button
+            onClick={() => {}}
+            text="Трейлер"
+            type={EButtonType.Primary}
+          />
+          <Button
+            onClick={() => {}}
+            text="О Фильме"
+            type={EButtonType.Primary}
+          />
+          <Button
+            onClick={() => {}}
+            icon="mdi:heart-outline"
+            type={EButtonType.Primary}
+          />
+          <Button
+            onClick={() => {}}
+            icon="pepicons-pop:arrows-spin"
+            type={EButtonType.Primary}
+          />
         </div>
       </div>
+      <div
+        className="banner-movie__background"
+        style={{ backgroundImage: `url(${movie?.backdropUrl})` }}
+      ></div>
     </div>
   );
 };
