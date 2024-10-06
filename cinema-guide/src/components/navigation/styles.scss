@@ -12,5 +12,8 @@
     &.active {
       border-color: $menu-active-color;
     }
+    &:hover {
+      color: $menu-hover-color;
+    }
   }
 }

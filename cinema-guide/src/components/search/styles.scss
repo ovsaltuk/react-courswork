@@ -1,0 +1,34 @@
+@import "@/app/common/styles/var.scss";
+
+.search {
+  display: flex;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background-color: $background-secondary;
+  & button,
+  input {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  & button {
+    padding: 0;
+
+    & > svg {
+      height: 24px;
+      width: 24px;
+      color: $white;
+      opacity: 50%;
+    }
+  }
+  & .search__input {
+    flex-grow: 2;
+    @include body18reg;
+  }
+}
+
+.search__input {
+  padding: 0 12px;
+  color: $white;
+}

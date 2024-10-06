@@ -3,9 +3,6 @@
 .banner-movie {
   position: relative;
   height: 680px;
-  // background-size: 60% 100%;
-  // background-position: right center;
-  // background-repeat: no-repeat;
 
   &__info {
     position: absolute;
@@ -13,7 +10,6 @@
     left: 80px;
     top: 200px;
     max-width: 60%;
-    
   }
 
   &__top-panel {

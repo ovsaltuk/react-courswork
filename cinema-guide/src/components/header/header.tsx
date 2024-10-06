@@ -3,6 +3,7 @@ import { APP_ROUTES } from "../../app/routes/config";
 import { INavigationItem, Navigation } from "../navigation/navigation";
 import { Logo } from "../logo/logo";
 import "./styles.scss";
+import { Search } from "../search/search";
 
 const NavListItems: INavigationItem[] = [
   { label: "Главная", path: APP_ROUTES.root },
@@ -15,8 +16,8 @@ export const Header: FC = () => {
       <div className="container">
         <Logo />
         <Navigation list={NavListItems} />
-        <div>Search</div>
-        <div>login</div>
+        <Search />
+        <button className="login-btn">Войти</button>
       </div>
     </header>
   );

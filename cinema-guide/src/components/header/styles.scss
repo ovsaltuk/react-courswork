@@ -1,3 +1,5 @@
+@import "@/app/common/styles/var.scss";
+
 .header {
   position: absolute;
   z-index: 1;
@@ -16,4 +18,12 @@
     max-width: 1440px;
     margin: 0 auto;
   }
+}
+
+.login-btn {
+  @include body24reg;
+  color: $white;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
