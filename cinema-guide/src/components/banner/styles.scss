@@ -47,3 +47,7 @@
   width: 60%;
   background-size: cover;
 }
+
+.banner-movie__btn-container .btn:first-child {
+  background-color: $background-active;
+}
