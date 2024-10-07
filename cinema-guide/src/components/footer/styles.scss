@@ -2,6 +2,7 @@
 
 .footer {
   display: flex;
+  background-color: $background-black;
   & .container {
     display: flex;
     justify-content: space-between;

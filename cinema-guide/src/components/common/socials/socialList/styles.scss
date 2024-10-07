@@ -9,10 +9,12 @@
         height: 36px;
         border: 1px solid $text-primary-color;
         border-radius: 8px;
+        transition: all $transition;
         &:hover {
-            color: $background-hovered;
-            border-color: inherit;
-            transition: $transition;
+            border-color: $background-hovered;
+            & > a {
+                color: $background-hovered;
+            }
         }
     }
 }
