@@ -4,15 +4,14 @@ import { Button, EButtonType } from "../common/button/button";
 import { Rating } from "../common/rating/rating";
 import { ESize } from "../../app/models/enums/common";
 import { formatDuration } from "../../app/common/utils/formatDuration";
-import { BannerStore } from "./store";
 import { IMovie } from "../../app/models/IMovie";
+import { appStore } from "../../app/appStore";
 
-export const Banner = ({ store }: { store: BannerStore }) => {
+export const Banner = () => {
   const [movie, setMovie] = useState<IMovie | undefined>(undefined);
-  const { getMovie } = store;
 
   const fetchMovie = async () => {
-    const movieData = await getMovie();
+    const movieData = await appStore.api.getRandomMovieAsync();
     setMovie(movieData);
   };
   useEffect(() => {
