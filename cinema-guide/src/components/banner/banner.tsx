@@ -15,7 +15,7 @@ export const Banner = () => {
     setMovie(movieData);
   };
   useEffect(() => {
-    fetchMovie(); // Загружаем фильм при первой отрисовке
+    fetchMovie(); 
   }, []);
 
   return (

@@ -1,9 +1,9 @@
 import { Api } from "./api/api";
 
-const url = "https://cinemaguide.skillbox.cc";
+const URL = "https://cinemaguide.skillbox.cc";
 
 class AppStore {
-  api = new Api(url);
+  api = new Api(URL);
 }
 
 export const appStore = new AppStore();
