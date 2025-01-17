@@ -11,7 +11,7 @@ export const Banner = () => {
   const [movie, setMovie] = useState<IMovie | undefined>(undefined);
 
   const fetchMovie = async () => {
-    const movieData = await appStore.api.getRandomMovieAsync();
+    const movieData = await appStore.api.movieApi.getRandomMovieAsync();
     setMovie(movieData);
   };
   useEffect(() => {

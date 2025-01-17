@@ -9,7 +9,7 @@ export const HomePage: FC = () => {
   const [topTen, setTopTen] = useState<IMovie[]>();
  
   useEffect(() => {
-    appStore.api.getTopTenMoviesAsync().then((data) => setTopTen(data))
+    appStore.api.movieApi.getTopTenMoviesAsync().then((data) => setTopTen(data))
   }, []);
   return (
     <div className="home">
