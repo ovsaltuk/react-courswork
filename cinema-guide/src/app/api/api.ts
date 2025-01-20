@@ -7,7 +7,7 @@ export class Api {
     this.baseUrl = baseUrl;
   }
 
-  protected getBaseUrl(): string {
+  protected get url(): string {
     return this.baseUrl;
   }
 

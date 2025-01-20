@@ -1,24 +1,39 @@
 import { IMovie } from "../models/IMovie";
 import { Api } from "./api";
 
+interface IMovieFilters {
+  count?: number,
+  page?: number,
+  title?: string,
+  genre?: string
+}
+
 export class MovieApi extends Api {
   getRandomMovieAsync = (): Promise<IMovie> => {
-    return Api.getDataAsync<IMovie>(`${this.getBaseUrl()}/random`);
+    return Api.getDataAsync<IMovie>(`${this.url}/random`);
   };
 
   getTopTenMoviesAsync = async (): Promise<IMovie[]> => {
-    return Api.getDataAsync<IMovie[]>(`${this.getBaseUrl()}/top10`);
+    return Api.getDataAsync<IMovie[]>(`${this.url}/top10`);
   };
 
   getGenresAsync = async (): Promise<string[]> => {
-    return Api.getDataAsync<string[]>(`${this.getBaseUrl()}/genres`);
+    return Api.getDataAsync<string[]>(`${this.url}/genres`);
   };
 
   getMovieByIdAsync = async (movieId: number): Promise<string[]> => {
-    return Api.getDataAsync<string[]>(`${this.getBaseUrl()}/${movieId}`);
+    return Api.getDataAsync<string[]>(`${this.url}/${movieId}`);
   };
 
-//   searchByTitleAsync = async (title: string): Promise<IMovie[]> => {
-//     return this.
-//   }
+  searchByFiltersAsync = async (filters: IMovieFilters): Promise<IMovie[]> => {
+    const params = new URLSearchParams(
+      Object.entries(filters)
+        .filter(([_, value]) => value !== undefined && value !== null)
+        .map(([key, value]) => [key, value.toString()])
+    );
+  
+    const url = params.toString() ? `${this.url}/search?${params}` : `${this.url}/search`;
+  
+    return Api.getDataAsync<IMovie[]>(url);
+  }
 }
