@@ -17,7 +17,7 @@ export interface IMovie {
   releaseDate: string;
   director: string;
   awardsSummary: string;
-  runtime: 1;
+  runtime: number;
   trailerUrl: string;
   releaseYear: number;
   countriesOfOrigin: string[];

@@ -32,7 +32,7 @@ export class MovieApi extends Api {
         .map(([key, value]) => [key, value.toString()])
     );
   
-    const url = params.toString() ? `${this.url}/search?${params}` : `${this.url}/search`;
+    const url = params.toString() ? `${this.url}?${params}` : `${this.url}`;
   
     return Api.getDataAsync<IMovie[]>(url);
   }

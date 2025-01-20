@@ -1,6 +1,7 @@
 @import "@/app/common/styles/var.scss";
 
 .search {
+  position: relative;
   display: flex;
   height: 48px;
   padding: 0 16px;
@@ -25,9 +26,20 @@
     flex-grow: 2;
     @include body18reg;
   }
+
+  .movie-mini-cards-list {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 85%;
+    overflow: hidden;
+
+  }
 }
 
 .search__input {
   padding: 0 12px;
   color: $white;
 }
+
+

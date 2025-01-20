@@ -24,7 +24,7 @@ export const Banner = () => {
         <>
           <div className="banner-movie__info">
             <div className="banner-movie__top-panel">
-              <Rating rating={movie?.tmdbRating} size={ESize.large} />
+              <Rating rating={movie?.tmdbRating} size={ESize.l} />
               <span>{movie?.releaseYear}</span>
               <span>{movie?.genres && movie.genres.join(" ")}</span>
               <span>{formatDuration(movie?.runtime)}</span>
