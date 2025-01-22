@@ -26,7 +26,7 @@ export const Search = (): ReactElement => {
       } catch (error) {
         console.error("Ошибка при запросе данных:", error);
       }
-    }, 300);
+    }, 100);
 
     return () => clearTimeout(delay);
   }, [searchValue]);

@@ -1,0 +1,11 @@
+@import "@/app/common/styles/var.scss";
+
+.genres-page {
+    padding-top: 160px;
+    width: 100%;
+
+    h1 {
+        margin-bottom: 64px;
+        @include h1;
+    }
+}

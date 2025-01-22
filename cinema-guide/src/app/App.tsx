@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { APP_ROUTES } from "./routes/config";
 import { Footer } from "../components/footer/footer";
@@ -7,6 +6,7 @@ import { GenresPage } from "../pages/genresPage/genresPage";
 import { HomePage } from "../pages/homePage/homePage";
 import { Header } from "../components/header/header";
 import "./styles.scss"
+import { MoviePage } from "../pages/moviePage/moviePage";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route path={APP_ROUTES.root} element={<HomePage />} />
           <Route path={APP_ROUTES.genres} element={<GenresPage />} />
+          <Route path={APP_ROUTES.movie} element={<MoviePage />} />
         </Routes>
     
       </main>

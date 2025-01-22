@@ -1,6 +1,13 @@
 @import "@/app/common/styles/var.scss";
 
 .app-container {
+    display: flex;
+    flex-direction: column;
     max-width: $app-max-width;
+    min-height: 100vh;
     margin: 0 auto;
+
+    .main-content {
+        flex-grow: 1;
+    }
 }
