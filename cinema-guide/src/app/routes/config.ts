@@ -1,5 +1,6 @@
 export enum APP_ROUTES {
   root = "/",
   genres = "/genres",
-  movie = "/movie/:id"
+  genre = "/genre",
+  movie = "/movie"
 }

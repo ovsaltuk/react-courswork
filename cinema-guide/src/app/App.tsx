@@ -7,6 +7,7 @@ import { HomePage } from "../pages/homePage/homePage";
 import { Header } from "../components/header/header";
 import "./styles.scss"
 import { MoviePage } from "../pages/moviePage/moviePage";
+import { GenrePage } from "../pages/genrePage/genrePage";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Routes>
           <Route path={APP_ROUTES.root} element={<HomePage />} />
           <Route path={APP_ROUTES.genres} element={<GenresPage />} />
-          <Route path={APP_ROUTES.movie} element={<MoviePage />} />
+          <Route path={`${APP_ROUTES.movie}/:id`} element={<MoviePage />} />
+          <Route path={`${APP_ROUTES.genre}/:genre`} element={<GenrePage />} />
         </Routes>
     
       </main>
