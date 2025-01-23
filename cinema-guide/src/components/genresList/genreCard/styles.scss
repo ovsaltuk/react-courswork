@@ -1,8 +1,33 @@
-.genre-card {
-    display: flex;
-    flex-direction: column;
+@import "@/app/common/styles/var.scss";
 
-    &__img{
-        max-width: 100%;
+.genre-card {
+  $border-radius: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    border-radius: 0 0 $border-radius $border-radius;
+    background-color: black;
+
+    span {
+      color: $white;
+      @include body24bold;
     }
+  }
 }

@@ -1,6 +1,8 @@
 import { ReactElement, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { appStore } from "../../../app/appStore";
+import "./styles.scss";
+import { capitalizeFirstLetter } from "../../../app/common/utils/capitalizeFirstLetter";
 
 export const GenreCard = ({ genre }: { genre: string }): ReactElement => {
   const [cardBackgroundImg, setCardBackgroundImg] = useState<string>("");
@@ -11,9 +13,14 @@ export const GenreCard = ({ genre }: { genre: string }): ReactElement => {
       .then((data) => setCardBackgroundImg(data[0].posterUrl));
   }, [genre]);
   return (
-    <NavLink className="genre-card" to="#">
-      <img src={cardBackgroundImg} alt={genre} className="genre-card__img" />
-      <span>{genre}</span>
+    <NavLink
+      className="genre-card"
+      to="#"
+      style={{ backgroundImage: `url(${cardBackgroundImg})` }}
+    >
+      <div className="genre-card__title">
+        <span>{capitalizeFirstLetter(genre)}</span>
+      </div>
     </NavLink>
   );
 };

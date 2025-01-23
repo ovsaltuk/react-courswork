@@ -32,7 +32,7 @@ $white-70: rgba(255, 255, 255, 0.7);
 
 $black-50: rgba(0, 0, 0, 0.5);
 
-$card-shadow: rgba(255, 255, 255, 0.33);
+$card-shadow: 0 0 80px rgba(255, 255, 255, 0.33);
 
 $transition: .2s ease-in-out;
 
@@ -67,4 +67,10 @@ $app-max-width: 1440px;
   font-size: 24px;
   line-height: 32px;
   font-weight: 400;
+}
+
+@mixin body24bold {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
 }
