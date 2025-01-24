@@ -5,14 +5,22 @@ import { MovieCard } from "./movieCard/movieCard";
 
 interface IMovieCardsListProps {
   movieList: IMovie[];
+  isTopTen?: boolean;
 }
 
-export const MovieCardsList: FC<IMovieCardsListProps> = ({ movieList }) => {
+export const MovieCardsList: FC<IMovieCardsListProps> = ({
+  movieList,
+  isTopTen = false,
+}) => {
   return (
     <ul className="card-list">
       {movieList.map((movie, index) => (
         <li key={movie.id} className="card-list__card">
-          <MovieCard movie={movie} position={index + 1} />
+          {isTopTen ? (
+            <MovieCard movie={movie} position={index + 1} />
+          ) : (
+            <MovieCard movie={movie} />
+          )}
         </li>
       ))}
     </ul>

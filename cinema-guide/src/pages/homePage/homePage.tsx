@@ -17,7 +17,7 @@ export const HomePage: FC = () => {
       <section className="top-ten">
         <div className="container">
           <h2 className="top-ten__title">Топ 10 фильмов</h2>
-          {topTen && <MovieCardsList movieList={topTen} />}
+          {topTen && <MovieCardsList movieList={topTen} isTopTen/>}
         </div>
       </section>
     </div>
