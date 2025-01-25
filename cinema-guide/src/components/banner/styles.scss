@@ -11,18 +11,7 @@
     top: 200px;
     max-width: 60%;
   }
-
-  &__top-panel {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    & > span {
-      @include body18reg;
-      color: $text-secondary-color;
-    }
-  }
-
+  
   &__title {
     @include h1;
     margin-bottom: 16px;

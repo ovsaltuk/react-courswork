@@ -1,0 +1,14 @@
+@import "@/app/common/styles/var.scss";
+
+.movie-page {
+    &-banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 680px;
+
+        & > img {
+            max-height: inherit;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import "@/app/common/styles/var.scss";
+
+.metadata {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  & > li {
+    @include body18reg;
+    color: $text-secondary-color;
+  }
+}

@@ -21,8 +21,8 @@ export class MovieApi extends Api {
     return Api.getDataAsync<string[]>(`${this.url}/genres`);
   };
 
-  getMovieByIdAsync = async (movieId: number): Promise<string[]> => {
-    return Api.getDataAsync<string[]>(`${this.url}/${movieId}`);
+  getMovieByIdAsync = async (movieId: number): Promise<IMovie> => {
+    return Api.getDataAsync<IMovie>(`${this.url}/${movieId}`);
   };
 
   searchByFiltersAsync = async (filters: IMovieFilters): Promise<IMovie[]> => {

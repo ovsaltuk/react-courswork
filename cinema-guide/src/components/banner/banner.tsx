@@ -6,6 +6,7 @@ import { ESize } from "../../app/models/enums/common";
 import { formatDuration } from "../../app/common/utils/formatDuration";
 import { IMovie } from "../../app/models/IMovie";
 import { appStore } from "../../app/appStore";
+import { MovieMetadata } from "../movieMetadata/movieMetadata";
 
 export const Banner = () => {
   const [movie, setMovie] = useState<IMovie | undefined>(undefined);
@@ -15,7 +16,7 @@ export const Banner = () => {
     setMovie(movieData);
   };
   useEffect(() => {
-    fetchMovie(); 
+    fetchMovie();
   }, []);
 
   return (
@@ -24,10 +25,7 @@ export const Banner = () => {
         <>
           <div className="banner-movie__info">
             <div className="banner-movie__top-panel">
-              <Rating rating={movie?.tmdbRating} size={ESize.l} />
-              <span>{movie?.releaseYear}</span>
-              <span>{movie?.genres && movie.genres.join(" ")}</span>
-              <span>{formatDuration(movie?.runtime)}</span>
+              <MovieMetadata movie={movie} />
             </div>
             <h1 className="banner-movie__title">{movie?.title}</h1>
             <p className="banner-movie__plot">{movie?.plot}</p>
