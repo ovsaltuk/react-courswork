@@ -6,13 +6,13 @@
 
 body {
   margin: 0;
-  background-color: $background-primary-color;
+  background: $background;
   color: $text-primary-color;
   font-family: Play;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 

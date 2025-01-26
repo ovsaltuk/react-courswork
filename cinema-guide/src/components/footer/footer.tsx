@@ -30,11 +30,6 @@ const socials: ISocialLink[] = [
 export const Footer: FC = () => {
   return(<footer className="footer">
     <div className="container">
-      <div className="footer__copyright">
-      <span>LLC «Мультимедиа Визион»</span>
-      <Icon icon="ic:baseline-copyright" />
-      <span>Все права защищены</span>
-      </div>
       <SocialList list={socials}/>
     </div>
   </footer>)
