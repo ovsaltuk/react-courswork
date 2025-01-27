@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import "./styles.scss";
 import { Button, EButtonType } from "../common/button/button";
 import { Rating } from "../common/rating/rating";
@@ -8,16 +8,27 @@ import { IMovie } from "../../app/models/IMovie";
 import { appStore } from "../../app/appStore";
 import { MovieMetadata } from "../movieMetadata/movieMetadata";
 
-export const Banner = () => {
-  const [movie, setMovie] = useState<IMovie | undefined>(undefined);
+interface IBannerProps {
+  defaultMovie?: IMovie;
+  isAdditionalButtons?: boolean;
+}
+
+export const Banner: FC<IBannerProps> = ({
+  defaultMovie,
+  isAdditionalButtons = true,
+}) => {
+  const [movie, setMovie] = useState<IMovie | undefined>(
+    defaultMovie ? defaultMovie : undefined
+  );
 
   const fetchMovie = async () => {
     const movieData = await appStore.api.movieApi.getRandomMovieAsync();
     setMovie(movieData);
   };
+
   useEffect(() => {
-    fetchMovie();
-  }, []);
+    !defaultMovie ? fetchMovie() : setMovie(defaultMovie);
+  }, [defaultMovie]);
 
   return (
     <div className="banner-movie">
@@ -35,27 +46,34 @@ export const Banner = () => {
                 text="Трейлер"
                 type={EButtonType.Primary}
               />
-              <Button
-                onClick={() => {}}
-                text="О Фильме"
-                type={EButtonType.Primary}
-              />
+              {isAdditionalButtons && (
+                <Button
+                  onClick={() => {}}
+                  text="О Фильме"
+                  type={EButtonType.Primary}
+                />
+              )}
+
               <Button
                 onClick={() => {}}
                 icon="mdi:heart-outline"
                 type={EButtonType.Primary}
               />
-              <Button
-                onClick={fetchMovie}
-                icon="pepicons-pop:arrows-spin"
-                type={EButtonType.Primary}
-              />
+              {isAdditionalButtons && (
+                <Button
+                  onClick={fetchMovie}
+                  icon="pepicons-pop:arrows-spin"
+                  type={EButtonType.Primary}
+                />
+              )}
             </div>
           </div>
-          <div
-            className="banner-movie__background"
+          <img
+            alt={movie.title}
+            className="banner-movie__img"
             style={{ backgroundImage: `url(${movie?.backdropUrl})` }}
-          ></div>
+            src={movie?.backdropUrl}
+          />
         </>
       )}
     </div>

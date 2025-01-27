@@ -4,6 +4,7 @@ import { IMovie } from "../../app/models/IMovie";
 import { appStore } from "../../app/appStore";
 import { MovieMetadata } from "../../components/movieMetadata/movieMetadata";
 import "./styles.scss"
+import { Banner } from "../../components/banner/banner";
 
 export const MoviePage = (): ReactElement => {
   const { id } = useParams();
@@ -18,18 +19,7 @@ export const MoviePage = (): ReactElement => {
 
   return (
     <div className="movie-page">
-      {movie && (
-        <div className="movie-page-banner">
-          <div className="movie-page-banner__info">
-            <MovieMetadata movie={movie} />
-          </div>
-          <img
-            className="movie-page-banner__img"
-            src={movie.posterUrl}
-            alt={movie.title}
-          />
-        </div>
-      )}
+      <Banner defaultMovie={movie} isAdditionalButtons={false}/>
     </div>
   );
 };
