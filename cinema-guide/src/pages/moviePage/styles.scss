@@ -1,14 +1,34 @@
 @import "@/app/common/styles/var.scss";
 
 .movie-page {
-    &-banner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-height: 680px;
-
-        & > img {
-            max-height: inherit;
-        }
+  .banner-movie {
+    margin-bottom: 40px;
+  }
+  .about {
+    & h2 {
+      margin-bottom: 64px;
+      @include h2;
     }
+  }
+  .dotted-list {
+    @include body18reg;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .dotted-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+  }
+
+  .dots {
+    align-self: flex-end;
+    flex-grow: 1;
+    height: 100%;
+    margin: 0 10px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  }
+
 }

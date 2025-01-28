@@ -1,9 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import "./styles.scss";
-import { Button, EButtonType } from "../common/button/button";
-import { Rating } from "../common/rating/rating";
-import { ESize } from "../../app/models/enums/common";
-import { formatDuration } from "../../app/common/utils/formatDuration";
+import { Button, EButtonType } from "../common/button/button"
 import { IMovie } from "../../app/models/IMovie";
 import { appStore } from "../../app/appStore";
 import { MovieMetadata } from "../movieMetadata/movieMetadata";

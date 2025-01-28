@@ -1,8 +1,7 @@
 import { FC } from "react"
-import "./styles.scss"
-import { Icon } from "@iconify/react"
 import { SocialList } from "../common/socials/socialList/socialList"
 import { ISocialLink } from "../common/socials/socialLink/socialLink"
+import "./styles.scss"
 
 const socials: ISocialLink[] = [
   {
