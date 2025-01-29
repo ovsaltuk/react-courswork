@@ -12,17 +12,14 @@ export const MoviePage = (): ReactElement => {
   useEffect(() => {
     if (!id) return;
 
-    const fetchMovie = async () => {
-      const data = await appStore.api.movieApi.getMovieByIdAsync(parseInt(id));
-      setMovie(data);
-    };
-
-    fetchMovie();
+    appStore.api.movieApi
+      .getMovieByIdAsync(parseInt(id))
+      .then((data) => setMovie(data));
   }, [id]);
 
   return (
     <div className="movie-page">
-      <Banner defaultMovie={movie} isAdditionalButtons={false} />
+      {movie && <Banner defaultMovie={movie} isAdditionalButtons={false} />}
       <section className="about">
         <h2>O Фильме</h2>
         <ul className="dotted-list">
@@ -58,7 +55,7 @@ export const MoviePage = (): ReactElement => {
             <li>
               <span>Продакшен</span>
               <span className="dots"></span>
-              <span className="value">{movie.production }</span>
+              <span className="value">{movie.production}</span>
             </li>
           )}
           {movie?.awardsSummary && (

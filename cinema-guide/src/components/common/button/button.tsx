@@ -1,12 +1,13 @@
 import { FC } from "react";
 import { ESize } from "../../../app/models/enums/common";
 import { Icon } from "@iconify/react";
+import { NavLink } from "react-router-dom";
 import "./styles.scss";
 
 export enum EButtonType {
   Primary = "primary",
   Secondary = "secondary",
-  Default = "default"
+  Default = "default",
 }
 
 interface IButtonProps {
@@ -17,6 +18,9 @@ interface IButtonProps {
   type?: EButtonType;
   size?: ESize;
 }
+type TLinkLikeButtonProps = Omit<IButtonProps, "onClick" | "wrapperClass"> & {
+  href: string;
+};
 
 export const Button: FC<IButtonProps> = ({
   onClick,
@@ -24,15 +28,33 @@ export const Button: FC<IButtonProps> = ({
   icon,
   wrapperClass,
   type = EButtonType.Default,
-  size = ESize.l
+  size = ESize.l,
 }) => {
-
-  const iconClassName = icon && !text ? 'only-icon' : '';
+  const iconClassName = icon && !text ? "only-icon" : "";
 
   return (
-    <div className={`btn ${type}-style ${size}-size ${iconClassName} ${wrapperClass}`} onClick={onClick}>
+    <div
+      className={`btn ${type}-style ${size}-size ${iconClassName} ${wrapperClass}`}
+      onClick={onClick}
+    >
       {icon && <Icon icon={icon} />}
       {text}
     </div>
+  );
+};
+
+export const LinkLikeButton: FC<TLinkLikeButtonProps> = ({
+  href,
+  icon,
+  text,
+  type = EButtonType.Default,
+  size = ESize.l,
+}) => {
+  const iconClassName = icon && !text ? "only-icon" : "";
+  return (
+    <NavLink to={href} className={`btn ${type}-style ${size}-size ${iconClassName}`}>
+      {icon && <Icon icon={icon} />}
+      {text}
+    </NavLink>
   );
 };

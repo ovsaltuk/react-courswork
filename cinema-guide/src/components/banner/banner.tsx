@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import "./styles.scss";
-import { Button, EButtonType } from "../common/button/button"
+import { Button, EButtonType, LinkLikeButton } from "../common/button/button";
 import { IMovie } from "../../app/models/IMovie";
 import { appStore } from "../../app/appStore";
 import { MovieMetadata } from "../movieMetadata/movieMetadata";
+import { APP_ROUTES } from "../../app/routes/config";
 
 interface IBannerProps {
   defaultMovie?: IMovie;
@@ -44,10 +45,10 @@ export const Banner: FC<IBannerProps> = ({
                 type={EButtonType.Primary}
               />
               {isAdditionalButtons && (
-                <Button
-                  onClick={() => {}}
+                <LinkLikeButton
                   text="О Фильме"
                   type={EButtonType.Primary}
+                  href={`${APP_ROUTES.movie}/${movie.id}`}
                 />
               )}
 
