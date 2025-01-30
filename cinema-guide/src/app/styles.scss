@@ -1,6 +1,7 @@
 @import "@/app/common/styles/var.scss";
 
 .app-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: $app-max-width;

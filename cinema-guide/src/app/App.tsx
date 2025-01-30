@@ -8,6 +8,7 @@ import { Header } from "../components/header/header";
 import "./styles.scss"
 import { MoviePage } from "../pages/moviePage/moviePage";
 import { GenrePage } from "../pages/genrePage/genrePage";
+import { Modal } from "../components/common/modal/modal";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       </main>
       <Footer />
     </BrowserRouter>
+    <Modal />
     </div>
   );
 }
