@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button } from "../button/button";
 import "./styles.scss";
+import { InputWithIcon } from "../inputWithIcon/inputWithIcon";
+import { EInputType } from "../../../app/models/enums/inputTypes";
 
 export const Modal = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [isRegistration, setIsRegistration] = useState<boolean>(false);
 
   const handleFormSubmit = (event: React.FormEvent): void => {
     console.log(event);
@@ -27,21 +29,59 @@ export const Modal = () => {
         <div className="modal__header">
           <img src={`${process.env.PUBLIC_URL}/logo__black.png`} alt="logo" />
         </div>
-        <span>Регистрация</span>
+        {isRegistration ? <span>Регистрация</span> : null}
         <form onSubmit={handleFormSubmit} className="modal__form">
-          <input type="email" name="email" placeholder="Электронная почта" />
-          <input type="text" name="name" placeholder="Имя" />
-          <input type="text" name="surname" placeholder="Фамилия" />
-          <input type="password" name="password" placeholder="Пароль" />
-          <input
-            type="password"
-            name="password-repeat"
-            placeholder="Подтвердите пароль"
+          <InputWithIcon
+            type={EInputType.Email}
+            name="email"
+            placeholder="Электронная почта"
+            icon="RiMailSendLine"
+            isRequired
           />
+          {isRegistration ? (
+            <InputWithIcon
+              type={EInputType.Text}
+              icon="GoPerson"
+              name="name"
+              placeholder="Имя"
+              isRequired
+            />
+          ) : null}
+          {isRegistration ? (
+            <InputWithIcon
+              type={EInputType.Text}
+              icon="GoPerson"
+              name="surname"
+              placeholder="Фамилия"
+              isRequired
+            />
+          ) : null}
+          <InputWithIcon
+            type={EInputType.Password}
+            icon="RiKeyLine"
+            name="password"
+            placeholder="Пароль"
+            isRequired
+          />
+          {isRegistration ? (
+            <InputWithIcon
+              type={EInputType.Password}
+              icon="RiKeyLine"
+              name="password-repeat"
+              placeholder="Подтвердите пароль"
+              isRequired
+            />
+          ) : null}
         </form>
         <div className="modal__button-container">
-          <Button onClick={() => {}} text="Войти" />
-          <Button onClick={() => {}} text="Регистрация" />
+          <Button
+            onClick={() => {}}
+            text={isRegistration ? "Создать аккаунт" : "Войти"}
+          />
+          <Button
+            onClick={() => setIsRegistration(!isRegistration)}
+            text={isRegistration ? "У меня есть пароль" : "Регистрация"}
+          />
         </div>
       </div>
     </div>

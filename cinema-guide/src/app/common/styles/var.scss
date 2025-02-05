@@ -1,6 +1,7 @@
 $btn-primary-color: #393b3c;
 $btn-secondary-color: #747474;
 $btn-default-color: #ffffff;
+$btn-auth-color: rgba(103, 165, 235, 1);
 
 $background-active: #6a5dc2;
 $background-disabled: #d6d2f1;
@@ -14,8 +15,6 @@ $menu-hover-color: #b4a9ff;
 $text-primary-color: #ffffff;
 $text-default-color: #000000;
 $text-secondary-color: rgba(255, 255, 255, 0.7);
-
-
 
 $shadow-color: rgba(255, 255, 255, 0.33);
 
@@ -42,13 +41,15 @@ $black-50: rgba(0, 0, 0, 0.5);
 
 $card-shadow: 0 0 80px rgba(255, 255, 255, 0.33);
 
-$transition: 0.2s ease-in-out;
+$transition-time: 0.2s ease-in-out;
 
 $app-max-width: 1440px;
 
 $input-border-radius: 8px;
 $input-border-color: $black-40;
 $input-placeholder-color: $black-40;
+
+$wrong: rgba(255, 117, 117, 1);
 
 @mixin h1 {
   font-size: 48px;

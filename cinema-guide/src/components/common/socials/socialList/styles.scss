@@ -9,7 +9,7 @@
         height: 36px;
         border: 1px solid $text-primary-color;
         border-radius: 8px;
-        transition: all $transition;
+        transition: all $transition-time;
         &:hover {
             border-color: $background-hovered;
             & > a {
