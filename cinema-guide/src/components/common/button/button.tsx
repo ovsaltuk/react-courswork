@@ -29,6 +29,7 @@ export const Button: FC<IButtonProps> = ({
   wrapperClass,
   type = EButtonType.Default,
   size = ESize.l,
+  
 }) => {
   const iconClassName = icon && !text ? "only-icon" : "";
 

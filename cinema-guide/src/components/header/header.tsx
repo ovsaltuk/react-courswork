@@ -4,6 +4,7 @@ import { INavigationItem, Navigation } from "../navigation/navigation";
 import { Logo } from "../logo/logo";
 import "./styles.scss";
 import { Search } from "../search/search";
+import { useModal } from "../../app/context/modalContext/modalContext";
 
 const NavListItems: INavigationItem[] = [
   { label: "Главная", path: APP_ROUTES.root },
@@ -11,13 +12,17 @@ const NavListItems: INavigationItem[] = [
 ];
 
 export const Header: FC = () => {
+  const { openModal } = useModal();
+
   return (
     <header className="header">
       <div className="container">
         <Logo />
         <Navigation list={NavListItems} />
         <Search />
-        <button className="login-btn">Войти</button>
+        <button className="login-btn" onClick={openModal}>
+          Войти
+        </button>
       </div>
     </header>
   );

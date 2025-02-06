@@ -3,17 +3,20 @@ import { Button } from "../button/button";
 import "./styles.scss";
 import { InputWithIcon } from "../inputWithIcon/inputWithIcon";
 import { EInputType } from "../../../app/models/enums/inputTypes";
+import { useModal } from "../../../app/context/modalContext/modalContext";
 
 export const Modal = () => {
+  const { isOpen, closeModal } = useModal();
   const [isRegistration, setIsRegistration] = useState<boolean>(false);
 
-  const handleFormSubmit = (event: React.FormEvent): void => {
-    console.log(event);
-  };
+  const handleFormSubmit = (event: React.FormEvent): void => {};
+
+  if (!isOpen) return null;
+
   return (
     <div className="modal">
       <div className="modal__content">
-        <div className="modal__close-btn">
+        <div className="modal__close-btn" onClick={closeModal}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={16}
@@ -30,7 +33,7 @@ export const Modal = () => {
           <img src={`${process.env.PUBLIC_URL}/logo__black.png`} alt="logo" />
         </div>
         {isRegistration ? <span>Регистрация</span> : null}
-        <form onSubmit={handleFormSubmit} className="modal__form">
+        <form className="modal__form" onSubmit={handleFormSubmit}>
           <InputWithIcon
             type={EInputType.Email}
             name="email"
@@ -72,17 +75,17 @@ export const Modal = () => {
               isRequired
             />
           ) : null}
+          <div className="modal__button-container">
+            <Button
+              onClick={() => {}}
+              text={isRegistration ? "Создать аккаунт" : "Войти"}
+            />
+            <Button
+              onClick={() => setIsRegistration(!isRegistration)}
+              text={isRegistration ? "У меня есть пароль" : "Регистрация"}
+            />
+          </div>
         </form>
-        <div className="modal__button-container">
-          <Button
-            onClick={() => {}}
-            text={isRegistration ? "Создать аккаунт" : "Войти"}
-          />
-          <Button
-            onClick={() => setIsRegistration(!isRegistration)}
-            text={isRegistration ? "У меня есть пароль" : "Регистрация"}
-          />
-        </div>
       </div>
     </div>
   );
