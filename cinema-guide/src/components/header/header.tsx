@@ -5,6 +5,7 @@ import { Logo } from "../logo/logo";
 import "./styles.scss";
 import { Search } from "../search/search";
 import { useModal } from "../../app/context/modalContext/modalContext";
+import { useAuth } from "../../app/context/authContext/authContext";
 
 const NavListItems: INavigationItem[] = [
   { label: "Главная", path: APP_ROUTES.root },
@@ -13,6 +14,7 @@ const NavListItems: INavigationItem[] = [
 
 export const Header: FC = () => {
   const { openModal } = useModal();
+  const { isAuthenticated } = useAuth();
 
   return (
     <header className="header">
@@ -21,7 +23,7 @@ export const Header: FC = () => {
         <Navigation list={NavListItems} />
         <Search />
         <button className="login-btn" onClick={openModal}>
-          Войти
+          {isAuthenticated ? "User" : "Войти"}
         </button>
       </div>
     </header>

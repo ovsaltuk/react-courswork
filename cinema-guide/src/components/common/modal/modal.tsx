@@ -1,15 +1,46 @@
 import { useState } from "react";
 import { Button } from "../button/button";
-import "./styles.scss";
 import { InputWithIcon } from "../inputWithIcon/inputWithIcon";
 import { EInputType } from "../../../app/models/enums/inputTypes";
 import { useModal } from "../../../app/context/modalContext/modalContext";
+import "./styles.scss";
+import { appStore } from "../../../app/appStore";
+import { useAuth } from "../../../app/context/authContext/authContext";
 
 export const Modal = () => {
   const { isOpen, closeModal } = useModal();
   const [isRegistration, setIsRegistration] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [surname, setSurname] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [repeatPassword, setRepitPassword] = useState<string>("");
 
-  const handleFormSubmit = (event: React.FormEvent): void => {};
+  const { login } = useAuth();
+
+  const handleLoginAsync = async () => {
+    try {
+      const response = await appStore.api.movieApi.loginAsync(email, password);
+
+      if (response.data.result) {
+        login();
+        closeModal();
+      } else {
+        alert("Неверный логин или пароль");
+      }
+    } catch (error) {
+      console.error("Ошибка при выполнении запроса:", error);
+      alert("Произошла ошибка при выполнении запроса");
+    }
+  };
+
+  const handleRegistration = () => {
+    appStore.api.movieApi.registartionAsync({ email, password, name, surname });
+  };
+
+  const handleSubmit = () => {
+    isRegistration ? handleRegistration() : handleLoginAsync();
+  };
 
   if (!isOpen) return null;
 
@@ -33,59 +64,62 @@ export const Modal = () => {
           <img src={`${process.env.PUBLIC_URL}/logo__black.png`} alt="logo" />
         </div>
         {isRegistration ? <span>Регистрация</span> : null}
-        <form className="modal__form" onSubmit={handleFormSubmit}>
+        <InputWithIcon
+          type={EInputType.Email}
+          name="email"
+          placeholder="Электронная почта"
+          icon="RiMailSendLine"
+          isRequired
+          onChange={setEmail}
+        />
+        {isRegistration ? (
           <InputWithIcon
-            type={EInputType.Email}
-            name="email"
-            placeholder="Электронная почта"
-            icon="RiMailSendLine"
+            type={EInputType.Text}
+            icon="GoPerson"
+            name="name"
+            placeholder="Имя"
             isRequired
+            onChange={setName}
           />
-          {isRegistration ? (
-            <InputWithIcon
-              type={EInputType.Text}
-              icon="GoPerson"
-              name="name"
-              placeholder="Имя"
-              isRequired
-            />
-          ) : null}
-          {isRegistration ? (
-            <InputWithIcon
-              type={EInputType.Text}
-              icon="GoPerson"
-              name="surname"
-              placeholder="Фамилия"
-              isRequired
-            />
-          ) : null}
+        ) : null}
+        {isRegistration ? (
+          <InputWithIcon
+            type={EInputType.Text}
+            icon="GoPerson"
+            name="surname"
+            placeholder="Фамилия"
+            isRequired
+            onChange={setSurname}
+          />
+        ) : null}
+        <InputWithIcon
+          type={EInputType.Password}
+          icon="RiKeyLine"
+          name="password"
+          placeholder="Пароль"
+          isRequired
+          onChange={setPassword}
+        />
+        {isRegistration ? (
           <InputWithIcon
             type={EInputType.Password}
             icon="RiKeyLine"
-            name="password"
-            placeholder="Пароль"
+            name="password-repeat"
+            placeholder="Подтвердите пароль"
             isRequired
+            onChange={setRepitPassword}
           />
-          {isRegistration ? (
-            <InputWithIcon
-              type={EInputType.Password}
-              icon="RiKeyLine"
-              name="password-repeat"
-              placeholder="Подтвердите пароль"
-              isRequired
-            />
-          ) : null}
-          <div className="modal__button-container">
-            <Button
-              onClick={() => {}}
-              text={isRegistration ? "Создать аккаунт" : "Войти"}
-            />
-            <Button
-              onClick={() => setIsRegistration(!isRegistration)}
-              text={isRegistration ? "У меня есть пароль" : "Регистрация"}
-            />
-          </div>
-        </form>
+        ) : null}
+        <div className="modal__button-container">
+          <Button
+            onClick={handleSubmit}
+            text={isRegistration ? "Создать аккаунт" : "Войти"}
+          />
+          <Button
+            onClick={() => setIsRegistration(!isRegistration)}
+            text={isRegistration ? "У меня есть пароль" : "Регистрация"}
+          />
+        </div>
       </div>
     </div>
   );

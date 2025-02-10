@@ -5,7 +5,7 @@ const URL = "https://cinemaguide.skillbox.cc";
 class AppStore {
     
   api = {
-    movieApi: new MovieApi(`${URL}/movie`),
+    movieApi: new MovieApi(`${URL}`),
   };
 }
 

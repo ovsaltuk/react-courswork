@@ -60,12 +60,8 @@
     }
   }
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    margin-bottom: 24px;
+  .input-with-icon {
+    margin-bottom: 12px;
   }
 
   &__button-container { 
